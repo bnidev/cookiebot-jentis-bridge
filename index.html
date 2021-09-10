@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JENTIS Coding Challenge</title>
+    
+    <!-- JENTIS Favicon -->
+    <link rel="shortcut icon" type="image/png" href="https://www.jentis.com/wp-content/themes/jentis/images/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" type="image/png" href="https://www.jentis.com/wp-content/themes/jentis/images/favicon-32x32.png" sizes="32x32">
+    
+    <!-- Styling -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--  JENTIS Consent Engine-->
+    <script src="js/test_conf.js"></script>
+    <script src="js/JentisConsentEngine.js" /></script>
+    <script src="js/JCE_bridge_GTM.js" /></script>
+
+    <!-- JENTIS Developer Examples -->
+    <script src="js/jentis_examle_clg.js"></script>
+    <script src="js/jentis_example_func.js"></script>
+
+    <!-- Cookiebot SDK -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="917e47ff-f8ce-4a9b-92dc-0678be6d695d" type="text/javascript"></script>
+
+    <!-- Consent Bridge -->
+    <script src="js/consent_bridge.js"></script>
+    
+    
+</head>
+<body>
+    <header>
+        <img class="header__logo" src="https://www.jentis.com/wp-content/themes/jentis/images/logo.svg" alt="JENTIS_LOGO">
+        <h1>Coding Challenge</h1>
+    </header>
+    <main>
+        <h2>Consent bridge between Cookiebot & JENTIS</h2>
+        <div class="consent_overview">
+        <div class="status_box">
+            <img src="https://www.cookiebot.com/img/logo_contrast.svg">
+            <p>Consent status: <span id="consent_status">loading...</span></p>
+            <p>Only necessary: <span id="consent_necessary">loading...</span></p>
+            <p>Preferences: <span id="consent_preferences">loading...</span></p>
+            <p>Statistics: <span id="consent_statistics">loading...</span></p>
+            <p>Marketing: <span id="consent_marketing">loading...</span></p>
+            <div class="button_container">
+            <button onClick="Cookiebot.renew();">Change Consent Settings</button>
+            </div>
+        </div>
+        <img src="img/arrow.png"/>
+        <div class="status_box">
+            <img src="https://www.jentis.com/wp-content/themes/jentis/images/logo.svg">
+            <div id="jentis_vendors">loading...</div>
+            <div class="jentis_meta_info">
+                <p>Last updated: <span id="jentis_last_updated"></span></p>
+            </div>
+            <div class="button_container">
+                <button onClick="acceptAll();updateUI();">Accept All</button>
+                <button onClick="acceptGa();updateUI();">Accept GA</button>
+                <button onClick="denyAll();updateUI();">Deny All</button>
+            </div>
+        </div>
+    </div>
+    <div class="data_output">
+        <h3>Data sent to server</h3>
+        <pre id="jentis_sent_to_server">nothing yet...</pre>
+    </div>
+    
+    </main>
+    <footer>© 2021 Benjamin Diener</footer>
+
+    <!-- UI Updates -->
+    <script src="js/ui_updates.js"></script>
+</body>
+</html>
