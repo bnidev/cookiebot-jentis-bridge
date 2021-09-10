@@ -18,7 +18,7 @@ window.addEventListener("CookiebotOnAccept", () => {
 
 // Update consent settings in JENTIS Consent Engine
 const UpdateConsentSettings = () => {    
-    const vendors = Object.entries(jentis.consent.config.vendors);      
+    const vendors = Object.entries(jentis.consent.engine.getVendorFullData());      
     let vendors_settings = {};
     vendors.map(v => {
         vendors_settings[`${v[0]}`] = false
@@ -32,7 +32,7 @@ const UpdateConsentSettings = () => {
 // Set all vendor consent settings in JENTIS Consent Engine to false
 const SetConsentSettingsToMinimal = () => {
     if(Cookiebot.consent.necessary) {
-        const vendors = Object.entries(jentis.consent.config.vendors);    
+        const vendors = Object.entries(jentis.consent.engine.getVendorFullData());    
         let vendors_settings = {};
         vendors.map(v => {
             vendors_settings[`${v[0]}`] = false
